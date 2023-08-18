@@ -225,7 +225,7 @@ button[type="submit"]:hover {
                 <button type="submit">Entrar</button>
             </form>
             
-            <p>Não tem uma conta? <a href="cadastro.php">Cadastre-se aqui</a></p>
+            <p>Não tem uma conta? <a href="registration.php">Cadastre-se aqui</a></p>
         </div>
     </div>
 </body>

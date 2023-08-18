@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Page</title>
-</head>
+
 <style>
     body {
     font-family: 'Arial', sans-serif;
@@ -151,14 +151,7 @@ nav ul li a:hover::before {
         </ul>
     </nav>
     
-    <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-</head>
-<body>
+    
     <div class="container">
         <h1>Cadastre-se</h1>
  
