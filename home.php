@@ -157,10 +157,10 @@ footer {
     <nav>
         <ul>
             <li><a href="home.php">Home</a></li>
-            <li><a href="cart.php">Shopping Car</a></li>
+            <li><a href="car.php">Shopping Car</a></li>
             <li><a href="login.php">Login</a></li>
-            <li><a href="pages/products.php">Products</a></li>
-            <li><a href="pages/contact.php">Contact Us</a></li> 
+            <li><a href="products.php">Products</a></li>
+            <li><a href="contact.php">Contact Us</a></li> 
         </ul>
     </nav>
     
@@ -178,15 +178,15 @@ footer {
             <ul>
                 <li>Variedade de produtos para todos os gostos</li>
                 <li>Preços competitivos e promoções exclusivas</li>
-                <li>Entrega rápida e eficiente</li>
-                <li>Atendimento ao cliente 24Hrs</li>
+                <li>Qualidade imensa nos produtos</li>
+                <li>Funcionalidade do site 24 Hrs</li>
             </ul>
         </section>
     </div>
     
     <div class="cta-banner">
         <h2>Pronto para começar a explorar?</h2>
-        <a href="produtos.php" class="cta-button">Ver Produtos</a>
+        <a href="products.php" class="cta-button">Ver Produtos</a>
     </div>
     
     <footer>

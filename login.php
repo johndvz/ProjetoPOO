@@ -1,3 +1,6 @@
+<?php        
+ session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +17,7 @@ body {
     padding: 0;
     background-color: #000;
     color: #fff;
+    
 }
 
 nav {
@@ -197,10 +201,10 @@ button[type="submit"]:hover {
     <nav>
         <ul>
             <li><a href="home.php">Home</a></li>
-            <li><a href="pages/cart.php">Shopping Cart</a></li>
-            <li><a href="pages/login.php">Login</a></li>
-            <li><a href="pages/products.php">Products</a></li>
-            <li><a href="pages/contact.php">Contact Us</a></li> 
+            <li><a href="car.php">Shopping Cart</a></li>
+            <li><a href="login.php">Login</a></li>
+            <li><a href="products.php">Products</a></li>
+            <li><a href="contact.php">Contact Us</a></li> 
         </ul>
     </nav>
     
@@ -208,14 +212,13 @@ button[type="submit"]:hover {
         <h1>Login</h1>
         
         <?php 
-        
         if(isset($_SESSION['mensagem'])){
             echo "<p>" . $_SESSION['mensagem'] . "</p>";
             unset ($_SESSION['mensagem']);
             }
         ?>
         <div class="login-form">
-            <form action="login_process.php" method="POST">
+            <form action="process_login.php" method="POST">
                 <label for="username">Usuário:</label>
                 <input type="text" id="username" name="username" required>
                 

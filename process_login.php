@@ -4,10 +4,10 @@
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         include "connect.php";
 
-        $usernameOrEmail = $_POST["username"];
+        $username = $_POST["username"];
         $password = $_POST["password"];
         
-        $isEmail = filter_var($usernameOrEmail, FILTER_VALIDATE_EMAIL);
+        $isEmail = filter_var($username, FILTER_VALIDATE_EMAIL);
 
         if($isEmail){
             $sql = "SELECT id, username, password FROM users WHERE email = ?";
@@ -17,9 +17,9 @@
         $stmt = $conn->prepare($sql);
 
         if($isEmail){
-            $stmt->bind_param("s", $usernameOrEmail);
+            $stmt->bind_param("s", $username);
         }else{
-            $stmt->bind_param("s", $usernameOrEmail);
+            $stmt->bind_param("s", $username);
         }     
         $stmt->execute();
         $stmt->store_result();
@@ -32,10 +32,11 @@
         if(password_verify($password, $hashedpassword)){
             $_SESSION["user_id"] = $userId;
             $_SESSION["username"] = $username;
-            header("Location: index.php");
+            header("Location: home.php");
             }else{
                 $_SESSION["mensagem"] = "Senha Incorreta";
                 header("Location: login.php");
+                
             }
         }else{
             $_SESSION["mensagem"] = "Usuário não Encontrado";

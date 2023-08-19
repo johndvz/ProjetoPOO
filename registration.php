@@ -146,15 +146,21 @@ nav ul li a:hover::before {
             <li><a href="home.php">Home</a></li>
             <li><a href="cart.php">Carrinho</a></li>
             <li><a href="login.php">Login</a></li>
-            <li><a href="pages/products.php">Products</a></li>
-            <li><a href="pages/contact.php">Contact Us</a></li>
+            <li><a href="products.php">Products</a></li>
+            <li><a href="contact.php">Contact Us</a></li>
         </ul>
     </nav>
     
     
     <div class="container">
         <h1>Cadastre-se</h1>
- 
+        <?php 
+        session_start();
+        if(isset($_SESSION['mensagem'])){
+            echo "<p>" . $_SESSION['mensagem'] . "</p>";
+            unset ($_SESSION['mensagem']);
+            }
+        ?>
       
         <form action="process_registration.php" method="post">
             <label for="iusername">Nome de usuário:</label><br>
