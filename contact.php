@@ -1,3 +1,14 @@
+<?php 
+    session_start();
+        if(!isset($_SESSION["user_id"])){
+            $_SESSION["mensagem"] = "Página Restrita, faça login, ou cadastro para entrar.";
+            header("Location: login.php");
+            exit();
+        }
+    include "connect.php";
+    $sql = "SELECT * FROM products";
+    $result = $conn->query($sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -192,6 +203,7 @@ footer {
                 <li><a href="login.php">Login</a></li>
                 <li><a href="products.php">Products</a></li>
                 <li><a href="contact.php">Contact Us</a></li>
+                <li><a href="buys.php">Buys</a></li>
             </ul>
     </nav>
 
@@ -205,6 +217,9 @@ footer {
                 <p><strong>Phone:</strong> 63 98502-2769</p>
                 <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jo%C3%A3o-v%C3%ADtor-piagem-pereira-811318270?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bjf1C3P8wTv6MDcwBObyVqA%3D%3D" target="_blank">Your Profile</a></p>
                 <p><strong>Discord:</strong> Jhonnyz</p>
+                <p><strong>GitHub:</strong> johndvz</p>
+                <p><strong>StackOverFlow:</strong> JohnDeveloper</p>
+
           
 
     <footer>

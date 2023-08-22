@@ -1,3 +1,15 @@
+<?php 
+    session_start();
+        if(!isset($_SESSION["user_id"])){
+            $_SESSION["mensagem"] = "Página Restrita, faça login, ou cadastro para entrar.";
+            header("Location: login.php");
+            exit();
+        }
+    include "connect.php";
+    $sql = "SELECT * FROM products";
+    $result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -161,6 +173,7 @@ footer {
             <li><a href="login.php">Login</a></li>
             <li><a href="products.php">Products</a></li>
             <li><a href="contact.php">Contact Us</a></li> 
+            <li><a href="buys.php">Buys</a></li> 
         </ul>
     </nav>
     

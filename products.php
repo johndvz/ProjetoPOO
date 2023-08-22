@@ -1,3 +1,14 @@
+<?php 
+    session_start();
+        if(!isset($_SESSION["user_id"])){
+            $_SESSION["mensagem"] = "Página Restrita, faça login, ou cadastro para entrar.";
+            header("Location: login.php");
+            exit();
+        }
+    include "connect.php";
+    $sql = "SELECT * FROM products";
+    $result = $conn->query($sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -147,13 +158,21 @@ footer {
 
 
     </style>
+    <?php 
+       
+       if(isset($_SESSION['mensagem'])){
+           echo'<p>' . $_SESSION['mensagem'] . '</p>';
+               unset($_SESSION['mensagem']);
+       }
+   ?>
     <nav>
         <ul>
             <li><a href="home.php">Home</a></li>
-            <li><a href="cart.php">Shopping Car</a></li>
+            <li><a href="car.php">Shopping Car</a></li>
             <li><a href="login.php">Login</a></li>
             <li><a href="products.php">Products</a></li>
             <li><a href="contact.php">Contact Us</a></li>
+            <li><a href="buys.php">Buys</a></li>
         </ul>
     </nav>
 
@@ -166,7 +185,7 @@ footer {
                 <p class="price">R$29.99</p>
                 <button class="buy-button"><a href="car.php"></a>Adicionar ao Carrinho</button>
             </div>
-
+            
             <div class="product">
                 <img src="product2.jpg" alt="Produto 2">
                 <h2>Produto 2</h2>
@@ -174,11 +193,66 @@ footer {
                 <p class="price">R$49.99</p>
                 <button class="buy-button"><a href="car.php"></a>Adicionar ao Carrinho</button>
             </div>
+           
+            <div class="product">
+                <img src="product1.jpg" alt="Produto 1">
+                <h2>Produto 3</h2>
+                <p>Descrição do Produto 3. Lorem ipsum dolor sit amet...</p>
+                <p class="price">R$259.99</p>
+                <button class="buy-button"><a href="car.php"></a>Adicionar ao Carrinho</button>
+            </div>
 
+            <div class="product">
+                <img src="product1.jpg" alt="Produto 1">
+                <h2>Produto 3</h2>
+                <p>Descrição do Produto 4. Lorem ipsum dolor sit amet...</p>
+                <p class="price">R$129.99</p>
+                <button class="buy-button"><a href="car.php"></a>Adicionar ao Carrinho</button>
+            </div>
+
+            <div class="product">
+                <img src="product1.jpg" alt="Produto 1">
+                <h2>Produto 4</h2>
+                <p>Descrição do Produto 4. Lorem ipsum dolor sit amet...</p>
+                <p class="price">R$329.99</p>
+                <button class="buy-button"><a href="car.php"></a>Adicionar ao Carrinho</button>
+            </div>
+
+            <div class="product">
+                <img src="product1.jpg" alt="Produto 1">
+                <h2>Produto 5</h2>
+                <p>Descrição do Produto 5. Lorem ipsum dolor sit amet...</p>
+                <p class="price">R$289.99</p>
+                <button class="buy-button"><a href="car.php"></a>Adicionar ao Carrinho</button>
+            </div>
+
+            <div class="product">
+                <img src="product1.jpg" alt="Produto 1">
+                <h2>Produto 6</h2>
+                <p>Descrição do Produto 1. Lorem ipsum dolor sit amet...</p>
+                <p class="price">R$929.99</p>
+                <button class="buy-button"><a href="car.php"></a>Adicionar ao Carrinho</button>
+            </div>
+
+            <div class="product">
+                <img src="product1.jpg" alt="Produto 1">
+                <h2>Produto 7</h2>
+                <p>Descrição do Produto 7. Lorem ipsum dolor sit amet...</p>
+                <p class="price">R$329.99</p>
+                <button class="buy-button"><a href="car.php"></a>Adicionar ao Carrinho</button>
+            </div>
+
+            <div class="product">
+                <img src="product1.jpg" alt="Produto 1">
+                <h2>Produto 8</h2>
+                <p>Descrição do Produto 8. Lorem ipsum dolor sit amet...</p>
+                <p class="price">R$29.99</p>
+                <button class="buy-button"><a href="car.php"></a>Adicionar ao Carrinho</button>
+            </div>
             <!-- Adicionar Mais Produtos -->
         </div>
     </div>
-
+   </form> 
     <footer>
         <p>&copy; 2023 Sua Loja. Todos os direitos reservados.</p>
     </footer>
