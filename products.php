@@ -1,3 +1,8 @@
+
+
+
+
+
 <?php 
     session_start();
         if(!isset($_SESSION["user_id"])){
@@ -18,7 +23,7 @@
     <title>Produtos</title>
 </head>
 <body>
-    <style>
+<style>
 
 * {
     margin: 0;
@@ -129,7 +134,7 @@ nav ul li a:hover::before {
     color: #0099cc;
 }
 
-.buy-button {
+.button {
     background-color: #0099cc;
     color: #fff;
     border: none;
@@ -139,7 +144,7 @@ nav ul li a:hover::before {
     transition: background-color 0.3s;
 }
 
-.buy-button:hover {
+.button:hover {
     background-color: #0077aa;
 }
 
@@ -168,91 +173,40 @@ footer {
     <nav>
         <ul>
             <li><a href="home.php">Home</a></li>
-            <li><a href="car.php">Shopping Car</a></li>
+            <li><a href="cart.php">Shopping Car</a></li>
             <li><a href="login.php">Login</a></li>
             <li><a href="products.php">Products</a></li>
             <li><a href="contact.php">Contact Us</a></li>
-            <li><a href="buys.php">Buys</a></li>
+            
         </ul>
     </nav>
 
     <div class="content-container">
-        <div class="products-container">
-            <div class="product">
-                <img src="product1.jpg" alt="Produto 1">
-                <h2>Produto 1</h2>
-                <p>Descrição do Produto 1. Lorem ipsum dolor sit amet...</p>
-                <p class="price">R$29.99</p>
-                <button class="buy-button"><a href="car.php"></a>Adicionar ao Carrinho</button>
-            </div>
-            
-            <div class="product">
-                <img src="product2.jpg" alt="Produto 2">
-                <h2>Produto 2</h2>
-                <p>Descrição do Produto 2. Consectetur adipiscing elit...</p>
-                <p class="price">R$49.99</p>
-                <button class="buy-button"><a href="car.php"></a>Adicionar ao Carrinho</button>
-            </div>
-           
-            <div class="product">
-                <img src="product1.jpg" alt="Produto 1">
-                <h2>Produto 3</h2>
-                <p>Descrição do Produto 3. Lorem ipsum dolor sit amet...</p>
-                <p class="price">R$259.99</p>
-                <button class="buy-button"><a href="car.php"></a>Adicionar ao Carrinho</button>
-            </div>
+        <!-- 
+        Conteúdo da página de produtos 
+        <div class="product">
+            <h2>Product Name</h2>
+            <p>Product description goes here.</p>
+            <p class="price">$19.99</p>
+            <form action="cart.php" method="post">
+                <input type="hidden" name="product_id" value="1">
+                <button type="submit" class="add-to-cart">Add to Cart</button>
+            </form>-->
+                <?php
+                $sql = "SELECT * FROM products";
+                $produtos = $conn->query($sql);
 
-            <div class="product">
-                <img src="product1.jpg" alt="Produto 1">
-                <h2>Produto 3</h2>
-                <p>Descrição do Produto 4. Lorem ipsum dolor sit amet...</p>
-                <p class="price">R$129.99</p>
-                <button class="buy-button"><a href="car.php"></a>Adicionar ao Carrinho</button>
-            </div>
+                foreach ($produtos as $produto) {
+                    echo "<div class ='product'>";
+                    echo "<p>{$produto['name']}</p>";
+                    echo "<p>Preço: R$ " . number_format($produto['price'], 2) . "</p>";
+                    echo "<button clas ";
+                    echo "</div>";
+                }
+                ?>
 
-            <div class="product">
-                <img src="product1.jpg" alt="Produto 1">
-                <h2>Produto 4</h2>
-                <p>Descrição do Produto 4. Lorem ipsum dolor sit amet...</p>
-                <p class="price">R$329.99</p>
-                <button class="buy-button"><a href="car.php"></a>Adicionar ao Carrinho</button>
-            </div>
-
-            <div class="product">
-                <img src="product1.jpg" alt="Produto 1">
-                <h2>Produto 5</h2>
-                <p>Descrição do Produto 5. Lorem ipsum dolor sit amet...</p>
-                <p class="price">R$289.99</p>
-                <button class="buy-button"><a href="car.php"></a>Adicionar ao Carrinho</button>
-            </div>
-
-            <div class="product">
-                <img src="product1.jpg" alt="Produto 1">
-                <h2>Produto 6</h2>
-                <p>Descrição do Produto 1. Lorem ipsum dolor sit amet...</p>
-                <p class="price">R$929.99</p>
-                <button class="buy-button"><a href="car.php"></a>Adicionar ao Carrinho</button>
-            </div>
-
-            <div class="product">
-                <img src="product1.jpg" alt="Produto 1">
-                <h2>Produto 7</h2>
-                <p>Descrição do Produto 7. Lorem ipsum dolor sit amet...</p>
-                <p class="price">R$329.99</p>
-                <button class="buy-button"><a href="car.php"></a>Adicionar ao Carrinho</button>
-            </div>
-
-            <div class="product">
-                <img src="product1.jpg" alt="Produto 1">
-                <h2>Produto 8</h2>
-                <p>Descrição do Produto 8. Lorem ipsum dolor sit amet...</p>
-                <p class="price">R$29.99</p>
-                <button class="buy-button"><a href="car.php"></a>Adicionar ao Carrinho</button>
-            </div>
-            <!-- Adicionar Mais Produtos -->
-        </div>
-    </div>
-   </form> 
+</div>
+        
     <footer>
         <p>&copy; 2023 Sua Loja. Todos os direitos reservados.</p>
     </footer>

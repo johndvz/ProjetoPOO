@@ -205,7 +205,7 @@ button[type="submit"]:hover {
             <li><a href="login.php">Login</a></li>
             <li><a href="products.php">Products</a></li>
             <li><a href="contact.php">Contact Us</a></li>
-            <li><a href="buys.php">Buys</a></li> 
+          
         </ul>
     </nav>
     
